@@ -11,7 +11,8 @@ all : $(NAME)
 	$(CC) -o $@ -c $<  $(FLAGS)
 
 $(NAME) : $(OBJ)
-	$(CC) -o $@ $^ $(FLAGS)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 re : fclean $(NAME)
 
