@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:58:09 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/25 14:46:11 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/10/25 16:03:15 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*p_dst;
+	size_t		i;
+	char		*p_dst;
 	const char	*p_src;
 
 	i = 0;
