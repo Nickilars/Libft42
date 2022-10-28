@@ -4,6 +4,7 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 DEPS = libft.h
+RM = rm -rf
 
 all : $(NAME)
 
@@ -16,9 +17,10 @@ $(NAME) : $(OBJ)
 
 re : fclean $(NAME)
 
-clean : rmf  %.o
+clean : 	
+	$(RM) *.o
 
-fclean : $(CLEAN)
+fclean : clean
 	$(RM) $(NAME)
 
 .PHONY: all re clean fclean 

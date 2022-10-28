@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:09:26 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/27 14:27:38 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/10/28 13:13:56 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	unsigned char	*to_find;
 
-	i = ft_strlen(s);
-	if (!ft_isalpha(c) || *s)
-		return (NULL);
-	while (i > -1)
+	to_find = (unsigned char *)s + ft_strlen(s);
+	if (!ft_isascii(c))
+		return (s);
+	while (c != *to_find)
 	{
-		if (*s == c)
-			return (&s);
-		s++;
-		i--;
+		if (to_find == s)
+			return (NULL);
+		to_find--;
 	}
-	return (NULL);
+	return (to_find);
 }
