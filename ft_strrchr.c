@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:09:26 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/28 13:13:56 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/10/31 09:53:35 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strrchr(const char *s, int c)
 	unsigned char	*to_find;
 
 	to_find = (unsigned char *)s + ft_strlen(s);
-	if (!ft_isascii(c))
-		return (s);
 	while (c != *to_find)
 	{
 		if (to_find == s)
