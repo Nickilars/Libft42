@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:06:14 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/31 13:46:55 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/02 11:18:45 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*p;
+	char	*p;
 
-	p = (unsigned char *) s;
+	p = (char *) s;
 	while (*p)
 	{
 		if (*p == (char)c)

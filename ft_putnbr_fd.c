@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 14:05:03 by nrossel           #+#    #+#             */
-/*   Updated: 2022/11/01 10:47:59 by nrossel          ###   ########.fr       */
+/*   Created: 2022/11/01 13:04:31 by nrossel           #+#    #+#             */
+/*   Updated: 2022/11/01 13:25:56 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t		src_len;
-	size_t		i;
+	long long int	nb;
 
-	src_len = ft_strlen(src);
-	if (!dst || !src)
-		return (0);
-	if (!dstsize)
-		return (src_len);
-	i = 0;
-	while (i < (dstsize - 1) && src[i])
+	nb = n;
+	if (nb == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (nb < 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-nb, fd);
 	}
-	if (dstsize < src_len)
-		dst[dstsize - 1] = 0;
-	else if (dstsize != 0)
-		dst[i] = 0;
-	return (src_len);
+	else if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd((nb % 10) + '0', fd);
+	}
+	else if (0 <= nb && nb < 10)
+		ft_putchar_fd(nb + '0', fd);
 }

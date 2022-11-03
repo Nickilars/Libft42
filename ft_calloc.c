@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:55:37 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/31 17:35:05 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/01 10:28:26 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	str = malloc(size * count);
 	if (!str)
 		return (str);
-	ft_bzero(str, count);
+	ft_bzero(str, count * size);
 	return (str);
 }
