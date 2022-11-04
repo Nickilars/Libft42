@@ -6,75 +6,69 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:04:26 by nrossel           #+#    #+#             */
-/*   Updated: 2022/11/03 14:17:41 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/04 10:29:15 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(long nb)
+static int	str_len(long long int n)
 {
-	int	len;
+	long long int	i;
 
-	len = 0;
-	if (nb < 0)
+	i = 1;
+	if (n < 0)
+		n = n * -1;
+	while (n >= 10)
 	{
-		nb = nb * -1;
-		len++;
+		n = n / 10;
+		i++;
 	}
-	if (nb == 0)
-		return (1);
-	if (nb > 0)
-	{
-		while (nb > 0)
-		{
-			nb = nb / 10;
-			len++;
-		}
-	}
-	return (len);
+	return (i);
 }
+/*---------------------------------------------------*/
 
-static char	*ft_nbzero(int n)
+static char	*insert_nb(char *str, long long int n, int len)
 {
-	char	*str;
-	int		len;
+	int		start;
 
-	len = 0;
-	if (n == 0)
-		len = 2;
-	str = malloc(len * sizeof(char));
-	str[0] = 0 + '0';
-	str[1] = 0;
+	str[len] = '\0';
+	len = len - 1;
+	if (n < 0)
+	{
+		n = n * -1;
+		start = 1;
+		str[0] = '-';
+	}
+	else
+		start = 0;
+	while (len >= start)
+	{
+		str[len] = n % 10 + '0';
+		n = n / 10;
+		len--;
+	}
 	return (str);
 }
+/*-----------------------------------------------*/
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	long	nb;
+	char			*str;
+	int				len;
+	long long int	nb;
 
-	nb = (long)n;
-	i = ft_len(nb);
+	nb = n;
+	len = str_len(nb);
 	if (nb < 0)
-		nb = -nb;
-	str = malloc((i + 1) * sizeof(char));
+		len = len + 1;
+	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	if (nb == 0)
-		return (ft_nbzero(0));
-	if (n < 0)
-		str[0] = '-';
-	str[i--] = 0;
-	while (nb > 0)
-	{
-		str[i--] = (nb % 10) + '0';
-		nb = nb / 10;
-	}
+	str = insert_nb(str, nb, len);
 	return (str);
 }
-
+/*--------------   Test War-Machine -----------------*/
 /*static void	ft_print_result(char const *s)
 {
 	int		len;
