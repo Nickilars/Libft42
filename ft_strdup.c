@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 11:21:49 by nrossel           #+#    #+#             */
-/*   Updated: 2022/10/31 13:19:00 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/07 16:29:18 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s1)
 	s_cpy = malloc(len * sizeof(char) + 1);
 	if (!s_cpy)
 		return (0);
-	while (i <= len)
+	while (i <= len && s1[i])
 	{
 		s_cpy[i] = s1[i];
 		i++;
