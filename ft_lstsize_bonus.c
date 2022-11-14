@@ -6,7 +6,7 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:30:59 by nrossel           #+#    #+#             */
-/*   Updated: 2022/11/07 15:10:56 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:24:52 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (!lst)
-		return (i);
+		return (0);
 	while (lst->next != NULL)
 	{
 		lst = lst->next;

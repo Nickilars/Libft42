@@ -6,13 +6,13 @@
 /*   By: nrossel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:29:27 by nrossel           #+#    #+#             */
-/*   Updated: 2022/11/04 14:43:00 by nrossel          ###   ########.fr       */
+/*   Updated: 2022/11/10 11:09:17 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*------------My Split------------------*/
+/*------------ My Split ------------------*/
 
 /*static int	len_tabstr(char *s, char c)
 {
@@ -37,7 +37,7 @@ static int	nb_char(const char *s, char c)
 			j++;
 		i++;
 	}
-	return (i);
+	return (j);
 }
 
 char	**ft_split(char const *s, char c)
@@ -50,14 +50,14 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-	tab = malloc((nb_char(s, c) + 1) * sizeof(char));
+	tab = malloc((nb_char(s, c) + 1) * sizeof(char *));
 	if (!tab || !s)
 		return (NULL);
 	tab[nb_char(s, c) + 1] = 0;
 	while (s[i])
 	{
 		if (i == 0 || k == 0)
-			tab[j] = (char *)malloc((len_tabstr((char *)&s[i],  c) + 1) + sizeof(char *));
+			tab[j] = malloc((len_tabstr((char *)&s[i], c) + 1) * sizeof(char));
 		if (s[i] == c)
 		{
 			tab[j][k] = 0;

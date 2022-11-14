@@ -46,8 +46,7 @@ FILES_BONUS	= ft_lstnew_bonus \
 				ft_lstadd_back_bonus \
 				ft_lstdelone_bonus \
 				ft_lstclear_bonus \
-				ft_lstiter_bonus \
-				ft_lstmap_bonus
+				ft_lstiter_bonus
 
 SRCS_DIR	= ./
 SRCS		= $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -77,9 +76,9 @@ all:		$(NAME)
 re:			fclean all
 
 clean:		
-	$(RM) *.o
+			$(RM) *.o
 
 fclean:		clean
-	$(RM) $(NAME)
+			$(RM) $(NAME)
 
 .PHONY: all re clean fclean bonus
