@@ -18,11 +18,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*s;
 	size_t		i;
 
+	if (!src && !dst)
+		return (NULL);
 	d = (char *) dst;
 	s = (char *) src;
 	i = 0;
-	if (!dst && !src)
-		return (NULL);
 	if (d > s)
 		while (len-- > 0)
 			d[len] = s[len];
